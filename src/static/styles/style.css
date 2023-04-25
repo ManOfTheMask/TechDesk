@@ -1,0 +1,14 @@
+body{
+    background-color: #424242;
+}
+
+#logo{
+    width: 14vw;
+    height: 104px;
+}
+.top-bar-box{
+    background-color: #009BE3;
+    width: 86vw;
+    height: 70px;
+    float:right;
+}
