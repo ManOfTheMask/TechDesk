@@ -6,9 +6,17 @@ body{
     width: 14vw;
     height: 104px;
 }
-.top-bar-box{
+#top-bar-box{
     background-color: #009BE3;
     width: 86vw;
     height: 70px;
     float:right;
+}
+#sidebar-menu{
+    background-color: #009BE3;
+    width: 70px;
+    max-height: 85.5vh;
+    height: 85.5vh;
+    float: left;
+    overflow: hidden;
 }
