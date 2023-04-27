@@ -64,4 +64,38 @@ body{
     position: absolute;
     left: 14%;
     top: 13%;
+    
+}
+
+/*login.html */
+
+#background-block{
+    background-color: #999999;
+    width: 76%;
+    height: 99%;
+    float: left;
+    overflow: hidden;
+    position: absolute;
+    left: 12%;
+    top: 0.2%;
+    border-radius: 20px;
+}
+#login{
+    background-color: #009BE3;
+    width: 19vw;
+    height: 50vh;
+    float: left;
+    overflow: hidden;
+    position: absolute;
+    left: 35%;
+    top: 25%;
+    border: 5px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
 }
