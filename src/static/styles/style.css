@@ -21,7 +21,7 @@ body{
     background-color: #009BE3;
     width: 70px;
     max-height: 100.5vh;
-    height: 88.5vh;
+    height: 85vh;
     float: left;
     overflow: hidden;
 
@@ -30,7 +30,7 @@ body{
     background-color: #929292;
     width: 14vw;
     max-height: 100.5vh;
-    height: 88.5vh;
+    height: 85vh;
     float: left;
     overflow: hidden;
 
@@ -63,32 +63,32 @@ body{
     overflow: hidden;
     position: absolute;
     left: 14%;
-    top: 13%;
+    top: 14%;
     
 }
 
 /*login.html */
 
-#background-block{
+#background-block {
     background-color: #999999;
-    width: 76%;
-    height: 99%;
+    width: 53%;
+    height: 86%;
     float: left;
     overflow: hidden;
     position: absolute;
-    left: 12%;
-    top: 0.2%;
+    left: 25%;
+    top: 10%;
     border-radius: 20px;
-}
-#login{
+  }
+  #login {
     background-color: #009BE3;
-    width: 19vw;
-    height: 50vh;
+    width: 41vw;
+    height: 64vh;
     float: left;
     overflow: hidden;
     position: absolute;
-    left: 35%;
-    top: 25%;
+    left: 5%;
+    top: 5%;
     border: 5px;
     border-style: solid;
     border-color: white;
@@ -97,5 +97,4 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-}
+  }
