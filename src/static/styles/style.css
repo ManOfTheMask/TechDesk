@@ -17,45 +17,66 @@ body{
     height: 104px;
     float:right;
 }
+
+#new-ticket{
+    background-color: orange;
+    width: 10vw;
+    height: 50px;
+    float: right;
+    margin-top: 25px;
+    margin-right: 25px;
+    border-radius: 20px;
+    border: 5px;
+    border-style: solid;
+    border-color: white;
+    font-size: x-large;
+    font-weight: bold;
+    color: white;
+}
+
+#logout{
+    background-color: red;
+    width: 10vw;
+    height: 50px;
+    float: right;
+    margin-top: 25px;
+    margin-right: 25px;
+    border-radius: 20px;
+    border: 5px;
+    border-style: solid;
+    border-color: white;
+    font-size: x-large;
+    font-weight: bold;
+    color: white;
+}
+
 #sidebar-menu{
     background-color: #009BE3;
     width: 70px;
     max-height: 100.5vh;
-    height: 85vh;
+    height: 88.5vh;
     float: left;
     overflow: hidden;
-    color : transparent;
 
 }
-
 #sidebar-menu:hover{
     background-color: #929292;
     width: 14vw;
     max-height: 100.5vh;
-    height: 85vh;
+    height: 88.5vh;
     float: left;
     overflow: hidden;
-    color: black;
-}
 
-.col{
-    margin-top: 20px;
-    padding-bottom: 5px;
-    border-top: 1px;
-    border-bottom: 1px;
-    border-left: 0px;
-    border-right: 0px;
-    border-style: solid;
 }
-
 
 .col > p{
     text-align: center;
-    margin: 0px;
-    float: right;
-    position: relative;
-    right: 25px;
-    top: 25px;
+    opacity: 0%;
+}
+.col > p:hover{
+    text-align: center;
+    padding-top: 15%;
+    opacity: 100%;
 }
 
 .link-logo{
@@ -63,7 +84,6 @@ body{
     width: 40px;
     height: 40px;
     float: left;
-    left: 100px;
 }
 
 #content-box{
@@ -76,32 +96,32 @@ body{
     overflow: hidden;
     position: absolute;
     left: 14%;
-    top: 14%;
+    top: 13%;
     
 }
 
 /*login.html */
 
-#background-block {
+#background-block{
     background-color: #999999;
-    width: 53%;
-    height: 86%;
+    width: 76%;
+    height: 99%;
     float: left;
     overflow: hidden;
     position: absolute;
-    left: 25%;
-    top: 10%;
+    left: 12%;
+    top: 0.2%;
     border-radius: 20px;
-  }
-  #login {
+}
+#login{
     background-color: #009BE3;
-    width: 41vw;
-    height: 64vh;
+    width: 19vw;
+    height: 50vh;
     float: left;
     overflow: hidden;
     position: absolute;
-    left: 5%;
-    top: 5%;
+    left: 35%;
+    top: 25%;
     border: 5px;
     border-style: solid;
     border-color: white;
@@ -110,4 +130,92 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-top: 10px;
+}
+
+/*ticketsubmission.html */
+
+#ticketSubmission {
+    background-color: #009BE3;
+    width: 61vw;
+    height: 85vh;
+    float: left;
+    overflow: hidden;
+    position: absolute;
+    left: 17%;
+    top: 0%;
+    border: 5px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
   }
+
+#ticketTitle{
+    width: 80%;
+    height: 10%;
+    border: 5px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    font-size: x-large;
+}
+
+#ticketDescription{
+    width: 80%;
+    height: 30%;
+    border: 5px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+#submitTicket{
+    background-color: lime;
+    width: 80%;
+    height: 10%;
+    border: 5px;
+    border-style: solid;
+    border-color: green;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+#submitTicket:hover{
+    background-color: green;
+    width: 80%;
+    height: 10%;
+    border: 5px;
+    border-style: solid;
+    border-color: lime;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+#cancelTicket{
+    width: 80%;
+    height: 10%;
+    border: 5px;
+    border-style: solid;
+    border-color: darkred;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    background-color: red;
+}
+
+#cancelTicket:hover{
+    background-color: darkred;
+    width: 80%;
+    height: 10%;
+    border: 5px;
+    border-style: solid;
+    border-color: red;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
