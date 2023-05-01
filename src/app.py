@@ -22,5 +22,9 @@ def ticketsubmission():
 def profile():
     return render_template('profile.html')
 
+@app.route("/ticket")
+def ticket():
+    return render_template("ticketdetails.html")
+
 if __name__ == '__main__':
     app.run(debug=True)

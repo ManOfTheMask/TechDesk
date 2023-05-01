@@ -135,7 +135,7 @@ body{
 
 /*ticketsubmission.html */
 
-#ticketSubmission {
+#ticket-submission {
     background-color: #009BE3;
     width: 61vw;
     height: 85vh;
@@ -155,7 +155,7 @@ body{
     padding-top: 10px;
   }
 
-#ticketTitle{
+#ticket-title{
     width: 80%;
     height: 10%;
     border: 5px;
@@ -166,7 +166,7 @@ body{
     font-size: x-large;
 }
 
-#ticketDescription{
+#ticket-description{
     width: 80%;
     height: 30%;
     border: 5px;
@@ -184,7 +184,7 @@ body{
   justify-content: right;
 }
 
-#submitTicket{
+#submit-ticket{
     background-color: lime;
     width: 25%;
     height: 25%; 
@@ -195,7 +195,7 @@ body{
     margin-bottom: 10px;
 }
 
-#submitTicket:hover{
+#submit-ticket:hover{
     background-color: green;
     width: 25%;
     height: 25%;
@@ -206,7 +206,7 @@ body{
     margin-bottom: 10px;
 }
 
-#cancelTicket{
+#cancel-ticket{
     width: 25%;
     height: 25%;
     border: 5px;
@@ -217,7 +217,7 @@ body{
     background-color: red;
 }
 
-#cancelTicket:hover{
+#cancel-ticket:hover{
     background-color: darkred;
     width: 25%;
     height: 25%;
@@ -259,4 +259,111 @@ body{
     position: absolute;
     left: 38%;
     top: 10%;
+}
+
+/*ticket-details.html*/
+
+#flex-group{
+    display: flex;
+}
+
+#username{
+    border: 5px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px;
+    padding-right: 5%;
+    width: 30%;
+}
+
+#ticket-number{
+    border: 5px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px;
+    padding-right: 5%;
+    width: 30%;
+}
+
+#title{
+    width: 80%;
+    height: 10%;
+    border: 5px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    font-size: x-large;
+}
+
+#description{
+    width: 80%;
+    height: 70%;
+    border: 5px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+#sidebar-info {
+  width: 20%;
+  height: 65%;
+  float: right;
+  justify-content: center;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  position: relative;
+  bottom: 70%;
+  right: 0%;
+  border: 5px;
+  border-style: solid;
+  border-color: white;
+  border-radius: 20px;
+
+}
+
+#close-ticket{
+    background-color: lime;
+    width: 25%;
+    height: 25%; 
+    border: 5px;
+    border-style: solid;
+    border-color: green;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+#close-ticket:hover{
+    background-color: green;
+    width: 25%;
+    height: 25%;
+    border: 5px;
+    border-style: solid;
+    border-color: lime;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+#delete-ticket{
+    width: 25%;
+    height: 25%;
+    border: 5px;
+    border-style: solid;
+    border-color: darkred;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    background-color: red;
+}
+
+#delete-ticket:hover{
+    background-color: darkred;
+    width: 25%;
+    height: 25%;
+    border: 5px;
+    border-style: solid;
+    border-color: red;
+    border-radius: 20px;
+    margin-bottom: 10px;
 }
