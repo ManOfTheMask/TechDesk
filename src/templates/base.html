@@ -10,10 +10,33 @@
     <body>
         <img src="{{ url_for('static', filename='images/LogoBlack.png')}}" id="logo">
         <div class="container-fluid" id="top-bar-box">
-            <button id="logout">Logout</button>
-            <button id="new-ticket">New Ticket</button>
+            <a href="{{ url_for('logout') }}"> <button id="logout">Logout</button></a>
+            <a href="{{ url_for('ticketsubmission') }}"><button id="new-ticket">New Ticket</button></a>
+            <img src="{{ url_for('static', filename='images/menu.png')}}" data-bs-toggle="collapse" data-bs-target="#menu" aria-expanded="false" aria-controls="collapsible-div">
         </div>
-        <!-- insert sidebar here-->
+        <!-- make a collapsible menu in bootstrap 5 -->
+
+        <div class="collapse collapse-horizontal" id="menu">
+            <div class="container-fluid" id="sidebar-menu">
+
+                <div class="row">
+                    <div class="col">
+                        <img src="{{ url_for('static', filename='images/ticket.png')}}" class="link-logo" id="ticket">
+                        <p><a href="{{ url_for('dashboard')}}">My Tickets</a></p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <img src="{{ url_for('static', filename='images/user.png')}}" class="link-logo" id="user">
+                        <p><a href="{{ url_for('profile')}}">My profile</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--
+
         <div class="container-fluid" id="sidebar-menu">
             <div class="row">
                 <div class="col">
@@ -25,7 +48,7 @@
             <div class="row">
                 <div class="col">
                     <img src="{{ url_for('static', filename='images/dashboard.png')}}" class="link-logo" id="dashboard">
-                    <p>DashBoard</p>
+                    <p><a href="{{ url_for('dashboard')}}">DashBoard</a></p>
                 </div>
                     
             </div>
@@ -44,7 +67,7 @@
                 </div>
             </div>
         </div>
-        
+    -->
         <div class="container-fluid" id="content-box">
             {% block content %}
         
