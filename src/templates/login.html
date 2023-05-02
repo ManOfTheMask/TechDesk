@@ -2,12 +2,11 @@
 {% block title %}Login{% endblock %}
 {% block content %}
 <div id="background-block">
-    <div id="login">
-        <!--make a form that takes a username and password-->
-        <input type="text" placeholder="Username" id="username">
-        <input type="password" placeholder="Password" id="password">
-        <button id="login-button">Login</button>
-
+        <form id="login">
+            <input type="text" placeholder="Username" id="username-login" class="login-element">
+            <input type="password" placeholder="Password" id="password-login" class="login-element">
+            <button id="login-button">Login</button>
+        </form>
     </div>
 </div>
 {% endblock %}
