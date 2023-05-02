@@ -97,6 +97,7 @@ body{
     position: absolute;
     left: 14%;
     top: 13%;
+    overflow: scroll;
     
 }
 
@@ -372,4 +373,12 @@ body{
     border-color: red;
     border-radius: 20px;
     margin-bottom: 10px;
+}
+/*dashboard.html*/
+
+#dashboard-table{
+    background: #7e7c7c;
+    border: 5px;
+    border-style: solid;
+    border-color: #9b9797;
 }

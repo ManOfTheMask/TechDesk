@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Index{% endblock %}
+{% block content %}
+<table class="table" id="dashboard-table">
+    <thead>
+        <tr>
+            <th scope="col"><input type="checkbox" id="select-item" name="checkbox" value="checkbox" /></th>
+            <th scope="col">Ticket Number</th>
+            <th scope="col">Title</th>
+            <th scope="col">Open Date</th>
+            <th scope="col">Created By</th>
+            <th scope="col">Status</th>
+            <th scope="col">Priority</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row"><input type="checkbox" id="select-item" name="checkbox" value="checkbox" /></th>
+            <td>1</td>
+            <td>Example Title</td>
+            <td>4/20/23 10:30pm</td>
+            <td>Bob</td>
+            <td>Open</td>
+            <td>low</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
