@@ -17,6 +17,13 @@ body{
     height: 104px;
     float:right;
 }
+#top-bar-box > img{
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 100px;
+    height: 100px;
+    float: left;
+}
 
 #new-ticket{
     background-color: orange;
@@ -51,32 +58,29 @@ body{
 }
 
 #sidebar-menu{
-    background-color: #009BE3;
-    width: 70px;
-    max-height: 100.5vh;
-    height: 88.5vh;
-    float: left;
-    overflow: hidden;
-
-}
-#sidebar-menu:hover{
     background-color: #929292;
     width: 14vw;
     max-height: 100.5vh;
     height: 88.5vh;
     float: left;
     overflow: hidden;
+    color:black;
+}
+
+.col{
+    border: .5px;
+    border-style: solid;
+    border-color: black;
 
 }
 
 .col > p{
     text-align: center;
-    opacity: 0%;
-}
-.col > p:hover{
-    text-align: center;
     padding-top: 15%;
-    opacity: 100%;
+    
+}
+.col > a{
+    padding-top: 15%;
 }
 
 .link-logo{

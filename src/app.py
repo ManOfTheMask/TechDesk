@@ -57,6 +57,10 @@ def login():
 def signup():
     return render_template('signup.html')
 
+@app.route("/logout")
+def logout():
+    return render_template('index.html')
+
 @app.route("/dashboard")
 def dashboard():
     return render_template("dashboard.html")
