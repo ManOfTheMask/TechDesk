@@ -6,7 +6,10 @@
             <input type="text" placeholder="Username" id="username-login" class="login-element">
             <input type="password" placeholder="Password" id="password-login" class="login-element">
             <button id="login-button">Login</button>
+            <div id="signup-link">
+            <a href="{{ url_for('signup')}}">No Account? Sign Up.</a>
+            </div>
         </form>
-    </div>
+        
 </div>
 {% endblock %}
