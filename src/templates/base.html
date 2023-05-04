@@ -12,6 +12,13 @@
         <div class="container-fluid" id="top-bar-box">
             <a href="{{ url_for('logout') }}"> <button id="logout">Logout</button></a>
             <a href="{{ url_for('ticketsubmission') }}"><button id="new-ticket">New Ticket</button></a>
+            {%with messages = get_flashed_messages()%}
+                {% if messages %}
+                    {% for message in messages %}
+                        <p class="message">{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
             <img src="{{ url_for('static', filename='images/menu.png')}}" data-bs-toggle="collapse" data-bs-target="#menu" aria-expanded="false" aria-controls="collapsible-div">
         </div>
         <!-- make a collapsible menu in bootstrap 5 -->

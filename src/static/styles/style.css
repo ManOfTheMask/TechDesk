@@ -105,6 +105,17 @@ body{
     
 }
 
+.message {
+    width: 400px;
+    height: 30px;
+    text-align: center;
+    margin-left : 25vw;
+    border: 1px solid #201f1f;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #201f1f;
+    color : #c0bbbb;
+}
+
 /*login.html and signup.html */
 
 #background-block{

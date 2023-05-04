@@ -5,3 +5,4 @@ src/__pycache__/
 .DS_Store
 
 instance/database.db
+var.env

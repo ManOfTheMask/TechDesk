@@ -4,9 +4,9 @@
 <div id="background-block">
         <!--make a form that takes a username and password-->
         <form id="login">
-            <input type="text" placeholder="Username" id="username-login" class="login-element">
-            <input type="email" placeholder="Email" id="email-login" class="login-element">
-            <input type="password" placeholder="Password" id="password-login" class="login-element">
+            <input type="text" placeholder="Username" id="username-login" class="login-element" name="username">
+            <input type="email" placeholder="Email" id="email-login" class="login-element" name="email">
+            <input type="password" placeholder="Password" id="password-login" class="login-element" name="password">
             <div>
                 <input type="radio" id="customer" name="role" value="customer">
                 <label for="customer">Customer</label>
@@ -14,7 +14,7 @@
                 <label for="technician">Technician</label>
             </div>
             <br>
-            <button id="login-button">Signup</button>
+            <input type="submit" value="Signup" id="login-button">
             <div id="signup-link">
                 <a href="{{ url_for('login')}}">Account? Login.</a>
                 </div>

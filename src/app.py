@@ -1,13 +1,16 @@
 from flask import *
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
-app.secret_key = "1232321"
+key = os.environ.get("SECRET_KEY")
+app.secret_key = str(key)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.app_context().push()
 db = SQLAlchemy(app)
 
-class user(db.Model):
+class users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
     email = db.Column(db.String(120))
@@ -48,11 +51,27 @@ class ticket(db.Model):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return redirect(url_for('login'))
 
-@app.route("/login")
+@app.route("/login", methods=['GET', 'POST'])
 def login():
-    return render_template('login.html')
+    if request.method == "POST":
+        username = request.form['username']
+        password = request.form['password']
+        session['username'] = username
+        found_username = users.query.filter_by(name=username).first()
+        found_password = users.query.filter_by(password=password).first()
+        if found_username:
+            if found_password:
+                flash("you were successfully logged in")
+                return redirect(url_for('dashboard'))
+        else:
+            flash("you were not found in the database please sign up")
+            return redirect(url_for('signup'))
+            
+
+    else:
+        return render_template('login.html')
 
 @app.route("/signup")
 def signup():
@@ -80,8 +99,7 @@ def ticket():
 
 if __name__ == '__main__':
     # investigate why it needs to run with app context
-    with app.app_context():
-        db.create_all()
+    db.create_all()
         #test commands
         #new_user = user("admin", "admin@gmail.com", "admin", "techition")
         #db.session.add(new_user)
