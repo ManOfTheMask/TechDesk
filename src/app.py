@@ -65,6 +65,9 @@ def login():
             if found_password:
                 flash("you were successfully logged in")
                 return redirect(url_for('dashboard'))
+            else:
+                flash("incorrect password")
+                return redirect(url_for('login'))
         else:
             flash("you were not found in the database please sign up")
             return redirect(url_for('signup'))
@@ -73,9 +76,30 @@ def login():
     else:
         return render_template('login.html')
 
-@app.route("/signup")
+@app.route("/signup" , methods=['GET', 'POST'])
 def signup():
-    return render_template('signup.html')
+    if request.method == "POST":
+        if request.method == "POST":
+            username = request.form['username']
+            email = request.form['email']
+            password = request.form['password']
+            role = request.form['role']
+            found_username = users.query.filter_by(name=username).first()
+            if found_username:
+                flash("username already exists")
+                return redirect(url_for('login'))
+            else:
+                new_user = users(username, email, password, role)
+                db.session.add(new_user)
+                db.session.commit()
+                flash("you were successfully signed up")
+                if role == "technician":
+                    return redirect(url_for('dashboard'))
+                else:
+                    return redirect(url_for('ticketsubmission'))
+        
+    else:
+        return render_template('signup.html')
 
 @app.route("/logout")
 def logout():
@@ -98,10 +122,5 @@ def ticket():
     return render_template("ticketdetails.html")
 
 if __name__ == '__main__':
-    # investigate why it needs to run with app context
     db.create_all()
-        #test commands
-        #new_user = user("admin", "admin@gmail.com", "admin", "techition")
-        #db.session.add(new_user)
-        #db.session.commit()
     app.run(debug=True)
