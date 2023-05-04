@@ -74,29 +74,31 @@ def login():
             
 
     else:
-        return render_template('login.html')
+        if "username" in session:
+            return redirect(url_for("dashboard"))
+        else:
+            return render_template('login.html')
 
 @app.route("/signup" , methods=['GET', 'POST'])
 def signup():
     if request.method == "POST":
-        if request.method == "POST":
-            username = request.form['username']
-            email = request.form['email']
-            password = request.form['password']
-            role = request.form['role']
-            found_username = users.query.filter_by(name=username).first()
-            if found_username:
-                flash("username already exists")
-                return redirect(url_for('login'))
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+        role = request.form['role']
+        found_username = users.query.filter_by(name=username).first()
+        if found_username:
+            flash("username already exists")
+            return redirect(url_for('login'))
+        else:
+            new_user = users(username, email, password, role)
+            db.session.add(new_user)
+            db.session.commit()
+            flash("you were successfully signed up")
+            if role == "technician":
+                   return redirect(url_for('dashboard'))
             else:
-                new_user = users(username, email, password, role)
-                db.session.add(new_user)
-                db.session.commit()
-                flash("you were successfully signed up")
-                if role == "technician":
-                    return redirect(url_for('dashboard'))
-                else:
-                    return redirect(url_for('ticketsubmission'))
+                return redirect(url_for('ticketsubmission'))
         
     else:
         return render_template('signup.html')
