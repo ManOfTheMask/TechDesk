@@ -31,7 +31,7 @@ class Tickets(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     author = db.Column(db.String(100))
     title = db.Column(db.String(100))
-    description = db.Column()
+    description = db.Column(db.String(5000))
     status = db.Column(db.String(100))
     priority = db.Column(db.String(100))
     date_open = db.Column(db.String(100))
