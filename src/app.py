@@ -1,6 +1,6 @@
 from flask import *
 from flask_sqlalchemy import SQLAlchemy
-import os
+import os, datetime
 
 app = Flask(__name__)
 key = os.environ.get("SECRET_KEY")
@@ -10,7 +10,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.app_context().push()
 db = SQLAlchemy(app)
 
-class users(db.Model):
+class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100))
     email = db.Column(db.String(120))
@@ -27,15 +27,15 @@ class users(db.Model):
     def __repr__(self):
         return '<User %r>' % self.name
 
-class ticket(db.Model):
+class Tickets(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     author = db.Column(db.String(100))
     title = db.Column(db.String(100))
-    description = db.Column(db.Text)
-    status = db.Column(db.Text)
-    priority = db.Column(db.Text)
-    date_open = db.Column(db.Text)
-    date_close = db.Column(db.Text)
+    description = db.Column()
+    status = db.Column(db.String(100))
+    priority = db.Column(db.String(100))
+    date_open = db.Column(db.String(100))
+    date_close = db.Column(db.String(100))
 
     def __init__(self, author, title, description, status, priority, date_open, date_close):
         self.author = author
@@ -59,8 +59,8 @@ def login():
         username = request.form['username']
         password = request.form['password']
         session['username'] = username
-        found_username = users.query.filter_by(name=username).first()
-        found_password = users.query.filter_by(password=password).first()
+        found_username = Users.query.filter_by(name=username).first()
+        found_password = Users.query.filter_by(password=password).first()
         if found_username:
             if found_password:
                 flash("you were successfully logged in")
@@ -86,12 +86,13 @@ def signup():
         email = request.form['email']
         password = request.form['password']
         role = request.form['role']
-        found_username = users.query.filter_by(name=username).first()
+        found_username = Users.query.filter_by(name=username).first()
         if found_username:
             flash("username already exists")
             return redirect(url_for('login'))
         else:
-            new_user = users(username, email, password, role)
+            session['username'] = username
+            new_user = Users(username, email, password, role)
             db.session.add(new_user)
             db.session.commit()
             flash("you were successfully signed up")
@@ -109,11 +110,29 @@ def logout():
 
 @app.route("/dashboard")
 def dashboard():
-    return render_template("dashboard.html")
+    tickets = Tickets.query.all()
+    return render_template("dashboard.html", tickets=tickets)
 
-@app.route("/ticketsubmission")
+@app.route("/ticketsubmission", methods=['GET', 'POST'])
 def ticketsubmission():
-    return render_template('ticketsubmission.html')
+    if request.method == "POST":
+        ticketAuthor = request.form['ticketAuthor']
+        ticketTitle = request.form['ticketTitle']
+        ticketDescription = request.form['ticketDescription']
+        ticketPriority = request.form['ticketPriority']
+        date = datetime.datetime.now()
+
+        new_ticket = Tickets(ticketAuthor, ticketTitle, ticketDescription, ticketPriority, "open", date, "none")
+        db.session.add(new_ticket)
+        db.session.commit()
+        flash("ticket submitted")
+        return redirect(url_for('dashboard'))
+    else:
+        if "username" in session:
+            return render_template('ticketsubmission.html')
+        else:
+            flash("you must be logged in to submit a ticket")
+            return redirect(url_for('login'))
 
 @app.route("/profile")
 def profile():

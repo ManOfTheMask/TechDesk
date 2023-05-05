@@ -178,6 +178,18 @@ body{
     padding-top: 10px;
   }
 
+#ticket-author{
+    width: 35%;
+    max-width: 80%;
+    height: 10%;
+    border: 5px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    font-size: x-large;
+}
+
 #ticket-title{
     width: 80%;
     height: 10%;
@@ -197,6 +209,18 @@ body{
     border-color: white;
     border-radius: 20px;
     margin-bottom: 10px;
+}
+
+#priority-selector{
+    width: 80%;
+    height: 10%;
+    border: 5px;
+    border-style: solid;
+    border-color: white;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    font-size: x-large;
+    float: right;
 }
 
 #button-group {

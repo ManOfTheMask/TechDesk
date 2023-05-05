@@ -14,15 +14,17 @@
         </tr>
     </thead>
     <tbody>
+        {% for ticket in tickets %}
         <tr>
             <th scope="row"><input type="checkbox" id="select-item" name="checkbox" value="checkbox" /></th>
-            <td>1</td>
-            <td>Example Title</td>
-            <td>4/20/23 10:30pm</td>
-            <td>Bob</td>
-            <td>Open</td>
-            <td>low</td>
+            <td>{{ ticket.id }}</td>
+            <td>{{ ticket.title }}</td>
+            <td>{{ ticket.date_open }}</td>
+            <td>{{ ticket.author }}</td>
+            <td>{{ ticket.status }}</td>
+            <td>{{ ticket.priority }}</td>
         </tr>
+        {% endfor %}
     </tbody>
 </table>
 {% endblock %}
