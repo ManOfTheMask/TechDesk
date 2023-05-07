@@ -2,7 +2,6 @@
 {% block title %}Ticket Submission{% endblock %}
 {% block content %}
 <form action="{{url_for('ticketsubmission')}}" method="post" id="ticket-submission">
-    <input type="text" id="ticket-author" placeholder="Author" Name="ticketAuthor">
     <input type="text" id="ticket-title" placeholder="Ticket Title" name="ticketTitle">
     <textarea id="ticket-description" placeholder="Ticket Description" name="ticketDescription"></textarea>
     <select id="priority-selector" name="ticketPriority">

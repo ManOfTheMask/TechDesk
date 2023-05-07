@@ -83,6 +83,7 @@ def login():
 def signup():
     if request.method == "POST":
         username = request.form['username']
+        session['username'] = username
         email = request.form['email']
         password = request.form['password']
         role = request.form['role']
@@ -116,7 +117,7 @@ def dashboard():
 @app.route("/ticketsubmission", methods=['GET', 'POST'])
 def ticketsubmission():
     if request.method == "POST":
-        ticketAuthor = request.form['ticketAuthor']
+        ticketAuthor = session['username']
         ticketTitle = request.form['ticketTitle']
         ticketDescription = request.form['ticketDescription']
         ticketPriority = request.form['ticketPriority']
