@@ -36,7 +36,7 @@
                 <div class="row">
                     <div class="col">
                         <img src="{{ url_for('static', filename='images/user.png')}}" class="link-logo" id="user">
-                        <p><a href="{{ url_for('profile')}}">My profile</a></p>
+                        <p><a href="{{ url_for('profiles', username=session['username']) }}">My profile</a></p>
                     </div>
                 </div>
             </div>

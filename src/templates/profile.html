@@ -7,9 +7,9 @@
     <input type="file" name="photo"><br>
     <input type="submit" value="Upload">
     <div id="profile-info">
-        <h2>Name: {{ profile.username }}</h2>
-        <h2>Account Creation Date: {{ profile.account_created }}</h2>
-        <h2>Role: {{ profile.role }}</h2>
+        <h2>Name: {{ user.username }}</h2>
+        <h2>Account Creation Date: {{ user.date_created }}</h2>
+        <h2>Role: {{ user.role }}</h2>
     </div>
 </div>
 {% endblock %}
