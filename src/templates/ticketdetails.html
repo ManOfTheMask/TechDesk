@@ -3,16 +3,16 @@
 {% block content %}
 <div id="background-block">
     <div id="flex-group">
-        <p id="username">Username: </p>
-        <p id="ticket-number">Ticket Number:</p>
+        <p id="username">Username: {{ ticket.author }}</p>
+        <p id="ticket-number">{{ ticket.id }}</p>
     </div>
-    <p id="title">Title</p>
-    <p id="description">Description</p>
+    <p id="title">{{ ticket.title }}</p>
+    <p id="description">{{ ticket.description }}</p>
     <div id="sidebar-info">
-        <p id="status">Status: </p>
-        <p id="priority">Priority: </p>
-        <p id="ticket-o-date">Ticket Open Date: </p>
-        <p id="ticket-c-date">Ticket Close Date: </p>
+        <p id="status">Status: {{ ticket.status }}</p>
+        <p id="priority">Priority: {{ ticket.priority }}</p>
+        <p id="ticket-o-date">Ticket Open Date: {{ ticket.date_open }}</p>
+        <p id="ticket-c-date">Ticket Close Date: {{ ticket.date_close }}</p>
     </div>
     <div id="button-group">
         <button id="delete-ticket">Delete Ticket</button>

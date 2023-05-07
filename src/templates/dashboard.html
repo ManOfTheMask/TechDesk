@@ -17,7 +17,7 @@
         {% for ticket in tickets %}
         <tr>
             <th scope="row"><input type="checkbox" id="select-item" name="checkbox" value="checkbox" /></th>
-            <td>{{ ticket.id }}</td>
+            <td><a href="{{ url_for('ticket', id=ticket.id) }}">{{ ticket.id }}</a></td>
             <td>{{ ticket.title }}</td>
             <td>{{ ticket.date_open }}</td>
             <td>{{ ticket.author }}</td>

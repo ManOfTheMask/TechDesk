@@ -138,9 +138,10 @@ def ticketsubmission():
 def profile():
     return render_template('profile.html')
 
-@app.route("/ticket")
-def ticket():
-    return render_template("ticketdetails.html")
+@app.route("/tickets/<int:id>")
+def ticket(id):
+    ticket = Tickets.query.get_or_404(id)
+    return render_template("ticketdetails.html", ticket=ticket)
 
 if __name__ == '__main__':
     db.create_all()
