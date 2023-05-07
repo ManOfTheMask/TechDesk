@@ -4,10 +4,12 @@
 
 <div id="background-block">
     <img id="profile-picture"src="">
+    <input type="file" name="photo"><br>
+    <input type="submit" value="Upload">
     <div id="profile-info">
-        <h2>Name: </h2>
-        <h2>Account Creation Date: </h2>
-        <h2>Role: </h2>
+        <h2>Name: {{ profile.username }}</h2>
+        <h2>Account Creation Date: {{ profile.account_created }}</h2>
+        <h2>Role: {{ profile.role }}</h2>
     </div>
 </div>
 {% endblock %}
