@@ -59,8 +59,8 @@ def index():
     if 'username' not in session:
         #make a guest keyvalue pair
         session['username'] = "USERNAME"
-    #send the user to the login screen
-    return redirect(url_for('login'))
+        #send the user to the login screen
+    return redirect(url_for("login"))
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -98,7 +98,11 @@ def login():
     else:
         #if user is already logged in, send them to the dashboard
         if "username" in session:
-            return redirect(url_for("dashboard"))
+            #if user session token equal guess
+            if session['username'] != "USERNAME":
+                return redirect(url_for("dashboard"))
+            else:
+                return render_template('login.html')
         #if the method is not post render the login page
         else:
             return render_template('login.html')
