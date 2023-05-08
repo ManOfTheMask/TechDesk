@@ -116,7 +116,7 @@ def signup():
 @app.route("/logout")
 def logout():
     session.pop('username', None)
-    return render_template('index.html')
+    return redirect(url_for('login'))
 
 @app.route("/dashboard", methods=['GET', 'POST'])
 def dashboard():
