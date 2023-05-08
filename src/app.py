@@ -53,7 +53,7 @@ class Tickets(db.Model):
 
 @app.route('/')
 def index():
-    if session['username'] == None:
+    if 'username' not in session:
         session['username'] = "USERNAME"
     return redirect(url_for('login'))
 
@@ -92,7 +92,6 @@ def signup():
         role = request.form['role']
         #check username for weblink friendly characters only
         if re.match("[^A-Za-z0-9]+", username):
-            
             flash("username must be alphanumeric")
             return redirect(url_for('signup'))
         else:
@@ -119,10 +118,26 @@ def logout():
     session.pop('username', None)
     return render_template('index.html')
 
-@app.route("/dashboard")
+@app.route("/dashboard", methods=['GET', 'POST'])
 def dashboard():
-    tickets = Tickets.query.all()
-    return render_template("dashboard.html", tickets=tickets)
+    if request.method == "POST":
+        ticket_ids = request.form.getlist('ticket_id')
+        for ticket_id in ticket_ids:
+            ticket = Tickets.query.get(ticket_id)
+            db.session.delete(ticket)
+        db.session.commit()
+        return redirect(url_for('dashboard'))
+    else:
+        if "username" in session:
+            if session['username'] == "USERNAME":
+                flash("please login to view the dashboard")
+                return redirect(url_for('login'))
+            else:
+                tickets = Tickets.query.all()
+                return render_template("dashboard.html", tickets=tickets)
+        else:
+            flash("you must be logged in to view the dashboard")
+            return redirect(url_for('login'))
 
 @app.route("/ticketsubmission", methods=['GET', 'POST'])
 def ticketsubmission():
@@ -132,14 +147,18 @@ def ticketsubmission():
         ticketDescription = request.form['ticketDescription']
         ticketPriority = request.form['ticketPriority']
 
-        new_ticket = Tickets(ticketAuthor, ticketTitle, ticketDescription, ticketPriority, "open","none")
+        new_ticket = Tickets(ticketAuthor, ticketTitle, ticketDescription, "open", ticketPriority, "none")
         db.session.add(new_ticket)
         db.session.commit()
         flash("ticket submitted")
         return redirect(url_for('dashboard'))
     else:
         if "username" in session:
-            return render_template('ticketsubmission.html')
+            if session['username'] == "USERNAME":
+                flash("please login to submit a ticket")
+                return redirect(url_for('login'))
+            else:
+                return render_template('ticketsubmission.html')
         else:
             flash("you must be logged in to submit a ticket")
             return redirect(url_for('login'))
@@ -149,10 +168,25 @@ def profiles(username):
     user = Users.query.filter_by(username=username).first_or_404()
     return render_template('profile.html', user=user)
 
-@app.route("/tickets/<int:id>")
+@app.route("/tickets/<int:id>", methods=['GET', 'POST'])
 def ticket(id):
-    ticket = Tickets.query.get_or_404(id)
-    return render_template("ticketdetails.html", ticket=ticket)
+    #add functionality to the delete button and the close button
+    if request.method == "POST":
+        button_pressed = request.form['button']
+        if button_pressed == "close":
+            ticket = Tickets.query.get_or_404(id)
+            ticket.status = "closed"
+            ticket.date_close = datetime.datetime.now()
+            db.session.commit()
+        elif button_pressed == "delete":
+            ticket = Tickets.query.get_or_404(id)
+            db.session.delete(ticket)
+            db.session.commit()
+        return redirect(url_for('dashboard'))
+        
+    else:
+        ticket = Tickets.query.get_or_404(id)
+        return render_template("ticketdetails.html", ticket=ticket)
 
 if __name__ == '__main__':
     db.create_all()

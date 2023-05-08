@@ -14,9 +14,9 @@
         <p id="ticket-o-date">Ticket Open Date: {{ ticket.date_open }}</p>
         <p id="ticket-c-date">Ticket Close Date: {{ ticket.date_close }}</p>
     </div>
-    <div id="button-group">
-        <button id="delete-ticket">Delete Ticket</button>
-        <button id="close-ticket">Close Ticket</button>
+    <form method="POST" action="{{url_for('ticket', id=ticket.id)}}" id="button-group">
+        <button type="submit" id="delete-ticket" value="delete" name="button">Delete Ticket</button>
+        <button type="submit" id="close-ticket" value="close" name="button">Close Ticket</button>
     </div>
 </div>
 {% endblock %}

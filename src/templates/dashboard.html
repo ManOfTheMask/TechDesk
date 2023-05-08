@@ -1,10 +1,13 @@
 {% extends "base.html" %}
 {% block title %}Index{% endblock %}
 {% block content %}
+<!--make a submit button for the checkboxs-->
+<form action="{{ url_for('dashboard') }}" method="post">
+    <input type="submit" value="Delete">
 <table class="table" id="dashboard-table">
     <thead>
         <tr>
-            <th scope="col"><input type="checkbox" id="select-item" name="checkbox" value="checkbox" /></th>
+            <th scope="col"><input type="checkbox" id="select-all" name="select-all" /></th>
             <th scope="col">Ticket Number</th>
             <th scope="col">Title</th>
             <th scope="col">Open Date</th>
@@ -16,7 +19,7 @@
     <tbody>
         {% for ticket in tickets %}
         <tr>
-            <th scope="row"><input type="checkbox" id="select-item" name="checkbox" value="checkbox" /></th>
+            <th scope="row"><input type="checkbox" id="select-item" name="ticket_id" value="{{ ticket.id }}" /></th>
             <td><a href="{{ url_for('ticket', id=ticket.id) }}">{{ ticket.id }}</a></td>
             <td>{{ ticket.title }}</td>
             <td>{{ ticket.date_open }}</td>
