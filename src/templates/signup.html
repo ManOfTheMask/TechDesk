@@ -2,13 +2,11 @@
 {% block title %}Signup{% endblock %}
 {% block content %}
 <div id="background-block">
-        <!--make a form that takes a username and password-->
         <form action="{{ url_for('signup') }}" method="post" id="login">
             <input type="text" placeholder="Username" id="username-login" class="login-element" name="username">
             <input type="email" placeholder="Email" id="email-login" class="login-element" name="email">
             <input type="password" placeholder="Password" id="password-login" class="login-element" name="password">
             <div>
-                <!--role = request.form['role'] <- use this when getting the role from the radio buttons-->
                 <input type="radio" id="customer" name="role" value="customer">
                 <label for="customer">Customer</label>
                 <input type="radio" id="technician" name="role" value="technician">

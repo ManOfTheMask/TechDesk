@@ -21,7 +21,6 @@
             {% endwith %}
             <img src="{{ url_for('static', filename='images/menu.png')}}" data-bs-toggle="collapse" data-bs-target="#menu" aria-expanded="false" aria-controls="collapsible-div">
         </div>
-        <!-- make a collapsible menu in bootstrap 5 -->
 
         <div class="collapse collapse-horizontal" id="menu">
             <div class="container-fluid" id="sidebar-menu">
@@ -41,40 +40,6 @@
                 </div>
             </div>
         </div>
-
-        <!--
-
-        <div class="container-fluid" id="sidebar-menu">
-            <div class="row">
-                <div class="col">
-                    <img src="{{ url_for('static', filename='images/menu.png')}}" class="link-logo" id="menu">
-                </div>
-
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <img src="{{ url_for('static', filename='images/dashboard.png')}}" class="link-logo" id="dashboard">
-                    <p><a href="{{ url_for('dashboard')}}">DashBoard</a></p>
-                </div>
-                    
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <img src="{{ url_for('static', filename='images/ticket.png')}}" class="link-logo" id="ticket">
-                    <p>My Tickets</p>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <img src="{{ url_for('static', filename='images/user.png')}}" class="link-logo" id="user">
-                    <p>My Profile</p>
-                </div>
-            </div>
-        </div>
-    -->
         <div class="container-fluid" id="content-box">
             {% block content %}
         

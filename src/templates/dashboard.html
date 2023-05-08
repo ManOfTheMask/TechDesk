@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Index{% endblock %}
 {% block content %}
-<!--make a submit button for the checkboxs-->
 <form action="{{ url_for('dashboard') }}" method="post">
     <input type="submit" value="Delete">
 <table class="table" id="dashboard-table">
